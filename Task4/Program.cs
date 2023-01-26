@@ -17,3 +17,21 @@ GenerateStringValuesToArray(array);
 
 Console.WriteLine($"Длинна массива равна {arrayLength}");
 Console.WriteLine($"Сгенерированный массив [{string.Join(" ,", array)}]");
+
+int maxLengthString =3;
+string[] GenerateNewArray(string[] arr){
+    string needValueArray = "";
+
+    for(int i=0;i<arr.Length;i++){
+        if(arr[i].Length<=maxLengthString) {
+            if(i!=0) needValueArray+=",";
+            needValueArray+=arr[i];
+        }
+    }
+
+    return needValueArray.Split(",");
+}
+
+string[] newArray = GenerateNewArray(array);
+
+Console.WriteLine($"Получившийся массив [{string.Join(" ,", newArray)}]");
